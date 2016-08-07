@@ -2,7 +2,7 @@ var express = require("express");
 var http = require("http");
 var app = express();
 
-//need to set view directory
+//set view directory
 app.set("views", "./views");
 app.set("view engine", "pug");
 
