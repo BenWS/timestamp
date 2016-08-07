@@ -2,17 +2,21 @@ var express = require("express");
 var http = require("http");
 var app = express();
 
-app.all("*", function(req, res, next) {
-//   res.writeHead(200, { "Content-Type": "text/plain" });
-  next();
+//need to set view directory
+app.set("views", "./views");
+app.set("view engine", "pug");
+
+app.get("/index", function(req,res) {
+  res.render("index")
 });
 
 app.get("/index/:date", function(req, res) {
 
+  //capture date from parameter
   var result = req.params.date;
   var myDate = new Date(result);
   
-  var month = chooseMonth(myDate);
+  var month = outputMonth(myDate);
   
   //if valid date
   if (!isNaN(Date.parse(myDate))) {
@@ -24,6 +28,7 @@ app.get("/index/:date", function(req, res) {
       naturalDate = null;
   }  
   
+  //send response, end response
   res.json({"unix":unixDate,"natural":naturalDate});
   res.end();
 });
@@ -32,7 +37,7 @@ app.get("*", function(request, response) {
   response.end("404!");
 });
 
-function chooseMonth(dateInput) {
+function outputMonth(dateInput) {
   
   var month;
   
