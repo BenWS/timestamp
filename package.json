@@ -2,7 +2,7 @@
   "name": "timestamp",
   "version": "1.0.0",
   "description": "Timestamp microservice - user inputs one particular time format, and receives another time format",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "verify"
   },
