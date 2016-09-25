@@ -17,8 +17,6 @@ app.get("/index/:date", function(req, res) {
   var result = req.params.date;
   var parsedResult = parseInt(result);
   
-  
-  
   var myDate;
   var unixDate;
   var naturalDate;
