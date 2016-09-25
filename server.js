@@ -3,12 +3,12 @@ var http = require("http");
 var app = express();
 
 //set view directory
-app.set("views", "./views");
+app.set("views", "/views");
 app.set("view engine", "pug");
 
 app.get("/index", function(req,res) {
-  // res.render("index")
-  res.end("This is the index page");
+  res.render("index")
+  // res.end("This is the index page");
 });
 
 app.get("/index/:date", function(req, res) {
