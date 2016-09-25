@@ -14,19 +14,32 @@ app.get("/index/:date", function(req, res) {
 
   //capture date from parameter
   var result = req.params.date;
-  var myDate = new Date(result);
+  var parsedResult = parseInt(result);
   
-  var month = outputMonth(myDate);
   
-  //if valid date
-  if (!isNaN(Date.parse(myDate))) {
-      var unixDate = Date.parse(myDate);
-      var naturalDate = month + " " + myDate.getDate() + "," + myDate.getFullYear();
-  //if not valid date
-  } else {
+  
+  var myDate;
+  var unixDate;
+  var naturalDate;
+  var month;
+  
+  //processing input
+  //if input is not a number
+  if (isNaN(parsedResult)) {
+    unixDate = new Date(result);
+    //if date.parse returns is not a number
+    if (isNaN(unixDate)) {
       unixDate = null;
       naturalDate = null;
-  }  
+    } else {
+      month = outputMonth(unixDate);
+      var naturalDate = month + " " + unixDate.getDate() + "," + unixDate.getFullYear();
+    }
+  } else {
+    unixDate = new Date(parsedResult);
+    month = outputMonth(unixDate);
+    naturalDate = month + " " + unixDate.getDate() + "," + unixDate.getFullYear();
+  }
   
   //send response, end response
   res.json({"unix":unixDate,"natural":naturalDate});
