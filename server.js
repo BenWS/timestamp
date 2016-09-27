@@ -3,7 +3,7 @@ var http = require("http");
 var app = express();
 
 //set view directory
-app.set("views", "/views");
+app.set("views", "./views");
 app.set("view engine", "pug");
 
 app.get("/index", function(req,res) {
