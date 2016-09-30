@@ -8,7 +8,7 @@ app.set("view engine", "pug");
 
 
 app.get("/*", function(req,res) {
-  res.redirect("/index");
+  res.redirect("./index");
   // res.end("This is the index page");
 });
 
