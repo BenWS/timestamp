@@ -6,6 +6,11 @@ var app = express();
 app.set("views", "./views");
 app.set("view engine", "pug");
 
+app.get("/*", function(req,res) {
+  res.redirect("/index");
+  // res.end("This is the index page");
+});
+
 app.get("/index", function(req,res) {
   res.render("index")
   // res.end("This is the index page");
@@ -43,12 +48,6 @@ app.get("/index/:date", function(req, res) {
   //send response, end response
   res.json({"unix":unixDate,"natural":naturalDate});
   res.end();
-});
-
-
-app.get("/*", function(req,res) {
-  res.redirect("/index");
-  // res.end("This is the index page");
 });
 
 function outputMonth(dateInput) {
