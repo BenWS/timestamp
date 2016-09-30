@@ -11,6 +11,11 @@ app.get("/index", function(req,res) {
   // res.end("This is the index page");
 });
 
+app.get("/*", function(req,res) {
+  res.redirect("/index");
+  // res.end("This is the index page");
+});
+
 app.get("/index/:date", function(req, res) {
 
   //capture date from parameter
