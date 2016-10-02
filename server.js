@@ -25,14 +25,15 @@ app.get("/index/:date", function(req, res) {
   //processing input
   //if input is not a number
   if (isNaN(parsedResult)) {
-    unixDate = new Date(result);
+    unixDate = Date.parse(new Date(result));
+    var myDate = new Date(result);
     //if date.parse returns is not a number
     if (isNaN(unixDate)) {
       unixDate = null;
       naturalDate = null;
     } else {
       month = outputMonth(unixDate);
-      var naturalDate = month + " " + unixDate.getDate() + "," + unixDate.getFullYear();
+      var naturalDate = month + " " + myDate.getDate() + "," + myDate.getFullYear();
     }
   } else {
     myDate = new Date (parsedResult);
