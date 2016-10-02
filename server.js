@@ -35,8 +35,7 @@ app.get("/index/:date", function(req, res) {
       var naturalDate = month + " " + unixDate.getDate() + "," + unixDate.getFullYear();
     }
   } else {
-    unixDate = new Date(parsedResult);
-    month = outputMonth(unixDate);
+    month = outputMonth(new Date(parsedResult););
     naturalDate = month + " " + unixDate.getDate() + "," + unixDate.getFullYear();
   }
   
