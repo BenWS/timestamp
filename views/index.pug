@@ -2,11 +2,15 @@ doctype 5
 html
   body
     div(style = "font-family:arial")
-      h3(style = "color:blue") Timestamp Micro-Service
-      p Application accepts either natural language date or UNIX timestamp as URL parameter and returns JSON array containing date in both formats
-      p Examples:
+      h4(style = "color:blue") Timestamp Micro-Service
+      blockquote Application accepts 
+        li 1) Natural Language date 
+        li 2) UNIX time 
+      p returns JSON array containing date in both formats
+      br
+      p Usage example:
       code https://apiprojects-benws.c9users.io/index/December%206,%201990
       br
       code https://apiprojects-benws.c9users.io/index/660441600000
-      p RETURNS
+      p return
       code {"unix":660441600000,"natural":"December 6,1990"}
