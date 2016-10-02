@@ -2,17 +2,15 @@ doctype 5
 html
   body
     div(style = "font-family:arial")
-      h4(style = "color:blue") Timestamp Micro-
-      br
+      h2(style = "color:#61B329") Timestamp Microservice
       p Application accepts either:
-      ol  
-        li Natural language date 
-        li Unix time 
-      p returns JSON array containing date in both formats
-      br
+      ul  
+        li Natural language date
+        li Unix time
+      p returns date in both formats.
       p Usage example:
       code https://apiprojects-benws.c9users.io/index/December%206,%201990
       br
       code https://apiprojects-benws.c9users.io/index/660441600000
-      p return
+      p returns
       code {"unix":660441600000,"natural":"December 6,1990"}
